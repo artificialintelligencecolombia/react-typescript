@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: blue;
+  font-family: "Rubik";
+}
+
+.heading {
+  text-transform: uppercase;
+  font-size: 30px;
+  margin: 30px 0;
+  color: salmon;
+  z-index: 1;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .heading {
+    margin: 15px 0;
+    font-size: 36px;
+  }
+}
