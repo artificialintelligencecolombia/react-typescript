@@ -1,6 +1,9 @@
 // React/External llibraries
 import { useState } from 'react'
 
+// Types/Interfaces
+import type { Todo } from './model';
+
 // Assets (images, etc)
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -86,10 +89,21 @@ const App3: React.FC = () => {
 };
 
 const App4: React.FC = () => {
+  // 1. Create state ' State: creates variable todo (variable) text (string), triggers re-render when setTodo updates it
+  const [todo, setTodo] = useState<string>(""); 
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  const handleAdd = () => {
+
+  };
+
+  console.log(todo)
+
   return(
+    // 2. Parent (App) passes the props to child: todo(data) and setTodo(function) to InputsField. Parent controls them and child displays them
     <>
       <span className='heading'>Taskify</span>
-      <InputField/>
+      <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
     </>
   )
 };
