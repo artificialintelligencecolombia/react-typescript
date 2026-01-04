@@ -8,6 +8,7 @@ interface Props {
 }
 
 // 4. Destructuring the props. Recieves props from parent to make use of them
+// Visual component
 const InputField = ({ todo, setTodo, handleAdd}: Props) => {
   return (
     <div>

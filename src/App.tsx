@@ -13,6 +13,7 @@ import './App2.css'
 
 // Local Components
 import InputField from './components/inputField'
+import TodoList from './components/todoList';
 
 // Declaration and initialization of variables
 let name: string;
@@ -88,7 +89,10 @@ const App3: React.FC = () => {
   )
 };
 
+// App is a functional component: a function that returns JSX (UI blueprint)
 const App4: React.FC = () => {
+
+  // State variables: store data that change over time and tell react to update UI
   // 1. Create state ' State: creates variable todo (variable) text (string), triggers re-render when setTodo updates it
   const [todo, setTodo] = useState<string>(""); 
   //     ^      ^
@@ -97,11 +101,12 @@ const App4: React.FC = () => {
   //     └─ Current state value
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  // Event handler function
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
 
     if(todo) {
-      setTodos([...todos, {id: Date.now(), todo, isDone: false}]);
+      setTodos([...todos, {id: Date.now(), todo: todo, isDone: false}]);
       setTodo("");
     }
   };
@@ -113,9 +118,7 @@ const App4: React.FC = () => {
     <>
       <span className='heading'>Taskify</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-      {todos.map((t) => (
-        <li>{t.todo}</li>
-      ))}
+      <TodoList todos={todos}/>
     </>
   )
 };

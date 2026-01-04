@@ -1,4 +1,4 @@
-// Defines the shape of a todo item
+// Defines the shape (data structure) of a todo item. Its the blueprint of a todo Item
 export interface Todo{
     id: number;
     todo: string;
