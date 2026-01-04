@@ -4,7 +4,7 @@ import './styles.css'
 interface Props {
   todo: string; // text value
   setTodo: React.Dispatch<React.SetStateAction<string>>; // Function to  update state
-  handleAdd: () => void;
+  handleAdd: (e: React.FormEvent) => void;
 }
 
 // 4. Destructuring the props. Recieves props from parent to make use of them

@@ -91,19 +91,31 @@ const App3: React.FC = () => {
 const App4: React.FC = () => {
   // 1. Create state ' State: creates variable todo (variable) text (string), triggers re-render when setTodo updates it
   const [todo, setTodo] = useState<string>(""); 
+  //     ^      ^
+  //     |      |
+  //     |      └─ Function to update the state
+  //     └─ Current state value
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleAdd = () => {
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault();
 
+    if(todo) {
+      setTodos([...todos, {id: Date.now(), todo, isDone: false}]);
+      setTodo("");
+    }
   };
 
-  console.log(todo)
+  console.log(todos)
 
   return(
     // 2. Parent (App) passes the props to child: todo(data) and setTodo(function) to InputsField. Parent controls them and child displays them
     <>
       <span className='heading'>Taskify</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
+      {todos.map((t) => (
+        <li>{t.todo}</li>
+      ))}
     </>
   )
 };
